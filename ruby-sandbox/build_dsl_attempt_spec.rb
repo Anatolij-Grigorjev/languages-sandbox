@@ -4,6 +4,7 @@ require "minitest/pride"
 #load relatives from current dir
 $LOAD_PATH << "."
 require "build_dsl_attempt"
+require "hash_xml_cooker"
 
 class DocumentDslTest < Minitest::Test
   include DocumentDsl
@@ -21,21 +22,23 @@ class DocumentDslTest < Minitest::Test
     end
 
     assert_equal document, {
-      family: "flow", author: "test-author", name: "test-name",
-      applications: [
+      name: "document", attributes: { family: "flow", author: "test-author", name: "test-name" },
+      children: [
         {
-          name: "app-name", spi: "SP-SP",
-          services: [
+          name: "application", attributes: { name: "app-name", spi: "SP-SP" },
+          children: [
             {
-              name: "service-name", integration_type: integration_type,
-              structures: [
-                { name: "ABC", type: "SQL" },
-                { name: "ABC", type: "SQL" },
+              name: "service", attributes: { name: "service-name", integration_type: integration_type },
+              children: [
+                { name: "structure", attributes: { name: "ABC", type: "SQL" }, children: [] },
+                { name: "structure", attributes: { name: "ABC", type: "SQL" }, children: [] },
               ],
             },
           ],
         },
       ],
     }
+
+    puts document.to_xml
   end
 end

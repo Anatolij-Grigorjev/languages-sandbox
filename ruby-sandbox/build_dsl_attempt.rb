@@ -1,19 +1,33 @@
 module DocumentDsl
   def document(attrs)
-    { family: "flow" }
-      .merge(attrs)
-      .merge({ applications: yield([]) })
+    {
+      name: "document",
+      attributes: { family: "flow" }.merge(attrs),
+      children: yield([]),
+    }
   end
 
   def application(attrs)
-    attrs.merge({ services: yield([]) })
+    {
+      name: "application",
+      attributes: attrs,
+      children: yield([]),
+    }
   end
 
   def service(attrs)
-    attrs.merge({ structures: yield([]) })
+    {
+      name: "service",
+      attributes: attrs,
+      children: yield([]),
+    }
   end
 
   def structure(attrs)
-    attrs
+    {
+      name: "structure",
+      attributes: attrs,
+      children: [],
+    }
   end
 end
