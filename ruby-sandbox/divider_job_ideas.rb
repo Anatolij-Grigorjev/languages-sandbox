@@ -1,3 +1,5 @@
+## blobs sync divider job
+
 NUM_KEYS_PER_SYNC = 3
 
 def perform(before_time)
@@ -46,4 +48,30 @@ def chunk_service_groups(service_groups)
 	service_groups
 	.map { |service, keys| [service, keys.each_slice(NUM_KEYS_PER_SYNC).to_a] }
 	.to_h
+end
+
+
+
+## BlobSyncJob
+
+SOURCE_SERVICE = :ceph_failover
+
+def perform(service_name, blob_keys)
+	source_service = ActiveStorage::Blob.services.fetch(SOURCE_SERVICE)
+	destination_service = ActiveStorage::Blob.services.fetch(service_name.to_sym)
+	source_service.bucket = destination_service.bucket
+	runners = []
+	blob_keys.each do |key|
+		runners << Thread.new do
+			unless source_service.exists?(key)
+				Logger.debug("Did not find blob #{key} in #{source_service.endpoint}")
+				return
+			end
+			source_service.open(key) do |file|
+				destination_service.upload(key, file)
+				Logger.debug("Uploaded blob #{key} to #{destination_service.endpoint}")
+			end
+		end
+	end
+	runners.map(&:join)
 end
