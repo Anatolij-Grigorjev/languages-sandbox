@@ -34,41 +34,54 @@ private
 def localized_blob_keys(before_time)
 	ActiveRecord::Blob
 	.where('created_at < ?', before_time)
-	.pluck(:key, :service_name)
+	.pluck(:service_name, :key, :checksum)
 end
 
 def grouped_by_service(flat_list)
 	flat_list
-	.group_by { |key_service_pair| key_service_pair[1] }
-	.map { |service, pairs_list| [service, pairs_list.map(&:first)] }
+	.group_by { |service_key_checksum| service_key_checksum.first }
+	.map { |service, blob_tuples| [service, blob_tuples.map { |tuple| tuple.slice(1..2) } ] }
 	.to_h
 end
 
 def chunk_service_groups(service_groups)
 	service_groups
-	.map { |service, keys| [service, keys.each_slice(NUM_KEYS_PER_SYNC).to_a] }
+	.map { |service, key_checksum| [service, key_checksum.each_slice(NUM_KEYS_PER_SYNC).to_a] }
 	.to_h
 end
 
 
+## BlobSyncJobTests
+let(:source_service) { double(ActiveStorage::Service) }
+let(:destination_service) { double(ActiveStorage::Service) }
+let(:opened_file) { 'blahblah' }
+let(:key) { 'key' }
+let(:checksum) { '00E0' }
+allow(ActiveStorage::Blob.services).to receive(:fetch).with(SOURCE_SERVICE).and_return(source_service)
+allow(ActiveStorage::Blob.services).to receive(:fetch).with(destination).and_return(destination_service)
+allow(source_service).to receive(:open).with(key, anything).and_yeild(opened_file)
+
+expect(destination_service).to receive(:upload).with(key, opened_file, hash_including(checksum: checksum))
+subject
 
 ## BlobSyncJob
 
 SOURCE_SERVICE = :ceph_failover
 
-def perform(service_name, blob_keys)
+def perform(service_name, blob_keys_with_checksum)
 	source_service = ActiveStorage::Blob.services.fetch(SOURCE_SERVICE)
 	destination_service = ActiveStorage::Blob.services.fetch(service_name.to_sym)
 	source_service.bucket = destination_service.bucket
 	runners = []
-	blob_keys.each do |key|
+	blob_keys_with_checksum.each do |key_checksum|
+		key, checksum = *key_checksum
 		runners << Thread.new do
 			unless source_service.exists?(key)
 				Logger.debug("Did not find blob #{key} in #{source_service.endpoint}")
 				return
 			end
-			source_service.open(key) do |file|
-				destination_service.upload(key, file)
+			source_service.open(key, checksum: checksum) do |file|
+				destination_service.upload(key, file, checksum: checksum)
 				Logger.debug("Uploaded blob #{key} to #{destination_service.endpoint}")
 			end
 		end
