@@ -52,14 +52,16 @@ end
 
 
 ## BlobSyncJobTests
+let(:source_service_config) { {} }
 let(:source_service) { double(ActiveStorage::Service) }
 let(:destination_service) { double(ActiveStorage::Service) }
 let(:opened_file) { 'blahblah' }
 let(:key) { 'key' }
 let(:checksum) { '00E0' }
-allow(ActiveStorage::Blob.services).to receive(:fetch).with(SOURCE_SERVICE).and_return(source_service)
+allow(Rails.active_storage.configs).to receive(:[]).with(SOURCE_SERVICE).and_return(source_service_config)
+allow(Aws::S3Service).to receive(:new).and_return(source_service)
 allow(ActiveStorage::Blob.services).to receive(:fetch).with(destination).and_return(destination_service)
-allow(source_service).to receive(:open).with(key, anything).and_yeild(opened_file)
+allow(source_service).to receive(:open).with(key, anything).and_yield(opened_file)
 
 expect(destination_service).to receive(:upload).with(key, opened_file, hash_including(checksum: checksum))
 subject
@@ -69,9 +71,9 @@ subject
 SOURCE_SERVICE = :ceph_failover
 
 def perform(service_name, blob_keys_with_checksum)
-	source_service = ActiveStorage::Blob.services.fetch(SOURCE_SERVICE)
 	destination_service = ActiveStorage::Blob.services.fetch(service_name.to_sym)
-	source_service.bucket = destination_service.bucket
+	source_service = failover_service_with_bucket(destination_service.bucket.name)
+	
 	runners = []
 	blob_keys_with_checksum.each do |key_checksum|
 		key, checksum = *key_checksum
@@ -87,4 +89,12 @@ def perform(service_name, blob_keys_with_checksum)
 		end
 	end
 	runners.map(&:join)
+end
+
+private
+
+def failover_service_with_bucket(bucket_name)
+	failover_config = Rails.active_storage.configs[:failover]
+	Aws::S3::Credentials = ...
+	Aws::S3Service.new(bucket_name, failover_config)
 end
