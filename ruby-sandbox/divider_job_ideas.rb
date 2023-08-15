@@ -1,3 +1,12 @@
+class BlobIntegrityDto
+	attr_reader :key, :checksum
+
+	def initialize(key, checksum)
+		@key = key
+		@checksum = checksum
+	end
+end
+
 ## blobs sync divider job
 
 NUM_KEYS_PER_SYNC = 3
@@ -20,9 +29,9 @@ def perform(before_time)
 		#{chunked_service_groups.map { |service_name, chunked_keys| "service #{service_name}: #{chunked_keys.size} jobs\n" }}
 		""")
 	total_jobs = 0
-	chunked_service_groups.each do |service_name, keys_sets|
+	chunked_service_groups.each do |service_name, blobs_set|
 		keys_sets.each do |keys_set|
-			BlobSyncJob.perform_async(service_name, keys_set)
+			BlobSyncJob.perform_async(service_name, blobs_set)
 			total_jobs += 1
 		end
 	end
@@ -40,13 +49,13 @@ end
 def grouped_by_service(flat_list)
 	flat_list
 	.group_by { |service_key_checksum| service_key_checksum.first }
-	.map { |service, blob_tuples| [service, blob_tuples.map { |tuple| tuple.slice(1..2) } ] }
+	.map { |service, blob_tuples| [service, blob_tuples.map { |tuple| BlobIntegrityDto.new(*tuple.slice(1..2)) } ] }
 	.to_h
 end
 
 def chunk_service_groups(service_groups)
 	service_groups
-	.map { |service, key_checksum| [service, key_checksum.each_slice(NUM_KEYS_PER_SYNC).to_a] }
+	.map { |service, blob_dtos| [service, blob_dtos.each_slice(NUM_KEYS_PER_SYNC).to_a] }
 	.to_h
 end
 
@@ -70,21 +79,20 @@ subject
 
 SOURCE_SERVICE = :ceph_failover
 
-def perform(service_name, blob_keys_with_checksum)
+def perform(service_name, blob_dtos)
 	destination_service = ActiveStorage::Blob.services.fetch(service_name.to_sym)
 	source_service = failover_service_with_bucket(destination_service.bucket.name)
 	
 	runners = []
-	blob_keys_with_checksum.each do |key_checksum|
-		key, checksum = *key_checksum
+	blob_dtos.each do |blob|
 		runners << Thread.new do
-			unless source_service.exists?(key)
-				Logger.debug("Did not find blob #{key} in #{source_service.endpoint}")
+			unless source_service.exists?(blob.key)
+				Logger.debug("Did not find blob #{blob.key} in #{source_service.endpoint}")
 				return
 			end
-			source_service.open(key, checksum: checksum) do |file|
-				destination_service.upload(key, file, checksum: checksum)
-				Logger.debug("Uploaded blob #{key} to #{destination_service.endpoint}")
+			source_service.open(blob.key, checksum: blob.checksum) do |file|
+				destination_service.upload(blob.key, file, checksum: blob.checksum)
+				Logger.debug("Uploaded blob #{blob.key} to #{destination_service.endpoint}")
 			end
 		end
 	end
