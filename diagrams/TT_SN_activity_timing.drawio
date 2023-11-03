@@ -1,9 +1,216 @@
-<mxfile host="Electron" modified="2023-11-03T08:56:59.868Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.3 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="Ijt773HqeOlOIpTdBolk" version="22.0.3" type="device">
+<mxfile host="Electron" modified="2023-11-03T10:17:03.187Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.3 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="U0ZRqm9m5jqc0fE-eSyU" version="22.0.3" type="device">
   <diagram name="Page-1" id="fRhqDzB5zEQ1bZEie0Dn">
-    <mxGraphModel dx="1026" dy="674" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2280" dy="1498" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-1" value="desk.vinted.net" style="swimlane;whiteSpace=wrap;html=1;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="20" width="360" height="1220" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-3" value="" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#ff0000;" vertex="1" parent="DXGAsZB7aOZnrcN5xz_u-1">
+          <mxGeometry x="80" y="40" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-4" value="TT agent decides to escalate ticket" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#000000;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="DXGAsZB7aOZnrcN5xz_u-3" parent="DXGAsZB7aOZnrcN5xz_u-1" target="DXGAsZB7aOZnrcN5xz_u-6">
+          <mxGeometry x="0.1974" relative="1" as="geometry">
+            <mxPoint x="95" y="130" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-6" value="TT agent uses Escalations to SN CTA" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="DXGAsZB7aOZnrcN5xz_u-1">
+          <mxGeometry x="35" y="110" width="115" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-21" value="ticket unassigned and put to &lt;b&gt;pending&lt;/b&gt; state" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="DXGAsZB7aOZnrcN5xz_u-1">
+          <mxGeometry x="37.5" y="260" width="115" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-45" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="DXGAsZB7aOZnrcN5xz_u-1" source="DXGAsZB7aOZnrcN5xz_u-35" target="DXGAsZB7aOZnrcN5xz_u-44">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-35" value="case notes added as internal notes" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="DXGAsZB7aOZnrcN5xz_u-1">
+          <mxGeometry x="35" y="545" width="115" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-37" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="DXGAsZB7aOZnrcN5xz_u-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint y="710" as="sourcePoint" />
+            <mxPoint x="360" y="710" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="DXGAsZB7aOZnrcN5xz_u-1" source="DXGAsZB7aOZnrcN5xz_u-38" target="DXGAsZB7aOZnrcN5xz_u-47">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="250" y="758" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-41" value="TT agent collects&lt;br&gt;details from member" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="DXGAsZB7aOZnrcN5xz_u-40">
+          <mxGeometry x="0.229" y="-1" relative="1" as="geometry">
+            <mxPoint x="-36" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-38" value="" style="shape=collate;whiteSpace=wrap;html=1;" vertex="1" parent="DXGAsZB7aOZnrcN5xz_u-1">
+          <mxGeometry x="20" y="740" width="40" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-39" value="TT agent adds relevant internal notes + sets ticket &lt;b&gt;pending&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="DXGAsZB7aOZnrcN5xz_u-1">
+          <mxGeometry x="20" y="890" width="170" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-44" value="ticket reopened/reassigned" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="DXGAsZB7aOZnrcN5xz_u-1">
+          <mxGeometry x="35" y="630" width="115" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="DXGAsZB7aOZnrcN5xz_u-1" source="DXGAsZB7aOZnrcN5xz_u-47" target="DXGAsZB7aOZnrcN5xz_u-39">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="230" y="820" />
+              <mxPoint x="105" y="820" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-54" value="[member issue not solved]" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="DXGAsZB7aOZnrcN5xz_u-53">
+          <mxGeometry x="0.3081" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-83" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="DXGAsZB7aOZnrcN5xz_u-1" source="DXGAsZB7aOZnrcN5xz_u-47" target="DXGAsZB7aOZnrcN5xz_u-75">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="260" y="760" />
+              <mxPoint x="260" y="1000" />
+              <mxPoint x="105" y="1000" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-84" value="[member issue solved]" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="DXGAsZB7aOZnrcN5xz_u-83">
+          <mxGeometry x="0.4403" y="1" relative="1" as="geometry">
+            <mxPoint x="35" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-47" value="" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="DXGAsZB7aOZnrcN5xz_u-1">
+          <mxGeometry x="220" y="740" width="20" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-75" value="TT agent marks ticket as&amp;nbsp;&lt;b&gt;solved&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="DXGAsZB7aOZnrcN5xz_u-1">
+          <mxGeometry x="20" y="1080" width="170" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-2" value="ServiceNow" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="20" width="360" height="1220" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-11" value="TT agent fills out relevant details to create SN case" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="DXGAsZB7aOZnrcN5xz_u-2">
+          <mxGeometry x="160" y="112.5" width="120" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="DXGAsZB7aOZnrcN5xz_u-2" source="DXGAsZB7aOZnrcN5xz_u-13" target="DXGAsZB7aOZnrcN5xz_u-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-13" value="" style="shape=line;html=1;strokeWidth=6;strokeColor=#000000;" vertex="1" parent="DXGAsZB7aOZnrcN5xz_u-2">
+          <mxGeometry x="170" y="210" width="100" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0.3;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="DXGAsZB7aOZnrcN5xz_u-2" source="DXGAsZB7aOZnrcN5xz_u-11" target="DXGAsZB7aOZnrcN5xz_u-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-19" value="SN agents informed of new case" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="DXGAsZB7aOZnrcN5xz_u-2">
+          <mxGeometry x="160" y="270" width="120" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="DXGAsZB7aOZnrcN5xz_u-2" source="DXGAsZB7aOZnrcN5xz_u-23" target="DXGAsZB7aOZnrcN5xz_u-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-26" value="SN agent collects details&lt;br&gt;form shipping providers" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="DXGAsZB7aOZnrcN5xz_u-25">
+          <mxGeometry x="-0.318" y="2" relative="1" as="geometry">
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-23" value="" style="shape=collate;whiteSpace=wrap;html=1;" vertex="1" parent="DXGAsZB7aOZnrcN5xz_u-2">
+          <mxGeometry x="260" y="350" width="40" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-27" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="DXGAsZB7aOZnrcN5xz_u-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint y="330" as="sourcePoint" />
+            <mxPoint x="360" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="DXGAsZB7aOZnrcN5xz_u-2" source="DXGAsZB7aOZnrcN5xz_u-30" target="DXGAsZB7aOZnrcN5xz_u-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-30" value="SN agent sets &lt;b style=&quot;&quot;&gt;AwaitingInfo&lt;/b&gt; state for case" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="DXGAsZB7aOZnrcN5xz_u-2">
+          <mxGeometry x="140" y="547.5" width="120" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-33" value="latest case notes and status" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="DXGAsZB7aOZnrcN5xz_u-2">
+          <mxGeometry x="-60" y="550" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-69" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="DXGAsZB7aOZnrcN5xz_u-2" source="DXGAsZB7aOZnrcN5xz_u-57" target="DXGAsZB7aOZnrcN5xz_u-58">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-57" value="internal notes added as case notes" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="DXGAsZB7aOZnrcN5xz_u-2">
+          <mxGeometry x="150" y="890" width="120" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-65" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="DXGAsZB7aOZnrcN5xz_u-2" source="DXGAsZB7aOZnrcN5xz_u-58" target="DXGAsZB7aOZnrcN5xz_u-23">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="270" y="960" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="320" y="1003" />
+              <mxPoint x="320" y="683" />
+              <mxPoint x="340" y="683" />
+              <mxPoint x="340" y="368" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-58" value="SN case reopened for SN agents" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="DXGAsZB7aOZnrcN5xz_u-2">
+          <mxGeometry x="150" y="980" width="120" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-73" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="DXGAsZB7aOZnrcN5xz_u-2" source="DXGAsZB7aOZnrcN5xz_u-24" target="DXGAsZB7aOZnrcN5xz_u-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-24" value="SN agent adds work notes" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="DXGAsZB7aOZnrcN5xz_u-2">
+          <mxGeometry x="70" y="450" width="120" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-79" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="DXGAsZB7aOZnrcN5xz_u-2" source="DXGAsZB7aOZnrcN5xz_u-76" target="DXGAsZB7aOZnrcN5xz_u-78">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-76" value="latest TT status and notes" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="DXGAsZB7aOZnrcN5xz_u-2">
+          <mxGeometry x="-60" y="1085" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-78" value="SN case closed" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="DXGAsZB7aOZnrcN5xz_u-2">
+          <mxGeometry x="140" y="1082.5" width="120" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-80" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#ff0000;" vertex="1" parent="DXGAsZB7aOZnrcN5xz_u-2">
+          <mxGeometry x="185" y="1180" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-81" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.521;entryY=0.203;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="DXGAsZB7aOZnrcN5xz_u-2" source="DXGAsZB7aOZnrcN5xz_u-78" target="DXGAsZB7aOZnrcN5xz_u-80">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="DXGAsZB7aOZnrcN5xz_u-9" target="DXGAsZB7aOZnrcN5xz_u-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-9" value="ticket details + SN case type" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="135" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="DXGAsZB7aOZnrcN5xz_u-6" target="DXGAsZB7aOZnrcN5xz_u-9">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="265" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="DXGAsZB7aOZnrcN5xz_u-13" target="DXGAsZB7aOZnrcN5xz_u-18">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="450" y="225" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-18" value="created case details" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="225" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="DXGAsZB7aOZnrcN5xz_u-18" target="DXGAsZB7aOZnrcN5xz_u-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="DXGAsZB7aOZnrcN5xz_u-33" target="DXGAsZB7aOZnrcN5xz_u-35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-60" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="DXGAsZB7aOZnrcN5xz_u-55" target="DXGAsZB7aOZnrcN5xz_u-57">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-55" value="latest TT ticket notes" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="915" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="DXGAsZB7aOZnrcN5xz_u-39" target="DXGAsZB7aOZnrcN5xz_u-55">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-74" value="investigation loop" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=160;height=50;strokeWidth=2;fontFamily=Helvetica;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="20" y="360" width="790" height="720" as="geometry" />
+        </mxCell>
+        <mxCell id="DXGAsZB7aOZnrcN5xz_u-77" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="DXGAsZB7aOZnrcN5xz_u-75" target="DXGAsZB7aOZnrcN5xz_u-76">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
