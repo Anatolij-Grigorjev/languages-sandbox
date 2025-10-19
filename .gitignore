@@ -1,2 +1,5 @@
 # exclude backup files
 **/*.bkp
+
+# exclude .pyc files
+**/*.pyc
